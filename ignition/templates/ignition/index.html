@@ -1,0 +1,17 @@
+{% extends 'ignition/base.html' %}
+{% block content %}
+<form class="form" method="POST">
+     {% csrf_token %}
+     {{form}}
+
+<button type="submit" class="btn btn-primary mb-2">Confirm Submit</button>
+
+</form>
+<br>
+{% for x in tasks %}
+{% if x.done is True %}
+{{x.task}} &nbsp;
+<br>
+{% endif %}
+{% endfor %}
+{% endblock %}
